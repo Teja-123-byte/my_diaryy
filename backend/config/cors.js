@@ -3,7 +3,7 @@ const cors = require('cors');
 const ORIGINS = [
   'http://localhost:8080',
   'http://localhost:5173',
-  'http://localhost:3000',
+  'https://my-diaryyy.vercel.app'
 ];
 
 const corsOptions = {

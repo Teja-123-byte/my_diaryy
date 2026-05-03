@@ -3,7 +3,7 @@ import { io, Socket } from "socket.io-client";
 // Backend URL — change via VITE_SOCKET_URL if needed
 const URL =
   (import.meta.env.VITE_SOCKET_URL as string | undefined) ||
-  "https://mydiaryy-production-8c91.up.railway.app/";
+  "https://mydiaryy-production-8c91.up.railway.app";
 
 export const SERVER_URL = URL;
 

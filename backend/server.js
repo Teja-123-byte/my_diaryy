@@ -77,6 +77,7 @@ startReminderCron(io);
 
 // ───── Server startup ─────
 const PORT = process.env.PORT || 3001;
+
 server.listen(PORT, () => {
-  console.log(`🚀 Dreamline server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });

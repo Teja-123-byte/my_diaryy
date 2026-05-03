@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────────
+   Dreamline · Midnight + Cotton Candy design system
+   All colors HSL. All tokens semantic.
+   ────────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    /* Midnight base */
+    --background: 244 38% 8%;
+    --foreground: 270 40% 96%;
+
+    --card: 245 32% 12%;
+    --card-foreground: 270 40% 96%;
+
+    --popover: 245 35% 11%;
+    --popover-foreground: 270 40% 96%;
+
+    /* Primary = lavender pastel */
+    --primary: 268 80% 78%;
+    --primary-foreground: 244 50% 12%;
+
+    /* Secondary = cotton candy pink */
+    --secondary: 332 78% 80%;
+    --secondary-foreground: 244 50% 12%;
+
+    --muted: 245 24% 18%;
+    --muted-foreground: 260 20% 72%;
+
+    --accent: 188 70% 76%;
+    --accent-foreground: 244 50% 12%;
+
+    --destructive: 350 80% 65%;
+    --destructive-foreground: 270 40% 98%;
+
+    --border: 250 24% 22%;
+    --input: 250 24% 22%;
+    --ring: 268 80% 78%;
+
+    /* Pastel palette (cotton candy) */
+    --pastel-pink: 332 90% 84%;
+    --pastel-pink-foreground: 332 60% 20%;
+    --pastel-lavender: 268 90% 84%;
+    --pastel-lavender-foreground: 268 60% 20%;
+    --pastel-mint: 158 70% 78%;
+    --pastel-mint-foreground: 158 50% 18%;
+    --pastel-butter: 44 95% 80%;
+    --pastel-butter-foreground: 30 60% 22%;
+    --pastel-peach: 18 95% 82%;
+    --pastel-peach-foreground: 18 60% 22%;
+    --pastel-sky: 200 90% 82%;
+    --pastel-sky-foreground: 200 60% 18%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(268 90% 78%), hsl(332 90% 80%));
+    --gradient-aurora: linear-gradient(135deg, hsl(268 90% 78% / 0.9), hsl(332 90% 80% / 0.8) 45%, hsl(188 80% 75% / 0.85));
+    --gradient-night: radial-gradient(ellipse at top, hsl(268 60% 22%) 0%, hsl(244 38% 8%) 60%);
+    --gradient-soft: linear-gradient(180deg, hsl(245 32% 14%), hsl(244 38% 9%));
+
+    /* Shadows + glow */
+    --shadow-soft: 0 10px 30px -12px hsl(268 60% 6% / 0.55);
+    --shadow-pop: 0 18px 50px -12px hsl(268 90% 60% / 0.55);
+    --shadow-glow: 0 0 60px -10px hsl(268 90% 70% / 0.55), 0 0 120px -40px hsl(332 90% 70% / 0.45);
+    --shadow-card: 0 8px 24px -10px hsl(244 60% 4% / 0.6);
+
+    --radius: 1.25rem;
+
+    /* Sidebar */
+    --sidebar-background: 246 36% 10%;
+    --sidebar-foreground: 270 30% 88%;
+    --sidebar-primary: 268 90% 78%;
+    --sidebar-primary-foreground: 244 50% 12%;
+    --sidebar-accent: 246 30% 16%;
+    --sidebar-accent-foreground: 270 40% 96%;
+    --sidebar-border: 250 24% 18%;
+    --sidebar-ring: 268 80% 78%;
+  }
+
+  /* Keep .dark identical — single dreamy dark theme */
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Quicksand', system-ui, sans-serif;
+    background-image:
+      radial-gradient(at 12% 8%, hsl(268 70% 28% / 0.45) 0px, transparent 55%),
+      radial-gradient(at 88% 0%, hsl(332 80% 30% / 0.4) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, hsl(188 70% 28% / 0.35) 0px, transparent 55%),
+      linear-gradient(180deg, hsl(244 40% 7%), hsl(244 38% 9%));
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.4);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Caveat', 'Quicksand', cursive;
+    letter-spacing: 0.005em;
+  }
+  .font-serif-display {
+    font-family: 'Fraunces', serif;
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: linear-gradient(180deg, hsl(245 32% 16% / 0.75), hsl(245 32% 12% / 0.55));
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid hsl(270 40% 80% / 0.08);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-strong {
+    background: linear-gradient(180deg, hsl(245 32% 18% / 0.92), hsl(245 32% 12% / 0.85));
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid hsl(270 40% 80% / 0.12);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .dreamy-ring {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.25), var(--shadow-glow);
+  }
+
+  .blob {
+    @apply pointer-events-none absolute rounded-full blur-3xl opacity-60;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary { background: var(--gradient-primary); }
+  .bg-gradient-aurora  { background: var(--gradient-aurora); }
+  .bg-gradient-night   { background: var(--gradient-night); }
+  .bg-gradient-soft    { background: var(--gradient-soft); }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-pop  { box-shadow: var(--shadow-pop); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+
+  .scrollbar-dreamy::-webkit-scrollbar { width: 8px; height: 8px; }
+  .scrollbar-dreamy::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.35);
+    border-radius: 999px;
+  }
+  .scrollbar-dreamy::-webkit-scrollbar-track { background: transparent; }
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.06); }
+  66% { transform: translate(-20px, 25px) scale(0.96); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float-up {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-blob { animation: blob-float 14s ease-in-out infinite; }
+.animate-float { animation: float-up 6s ease-in-out infinite; }
